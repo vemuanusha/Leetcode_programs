@@ -1,11 +1,10 @@
 class Solution {
 public:
     int numTrees(int n) {
-        long ans=1;
-        for(int i=0;i<n;i++){
-            ans*=(2*n-i);
-            ans/=(i+1);
+        long long res = 1;
+        for (int i = 0; i < n; i++) {
+            res = res * 2 * (2 * i + 1) / (i + 2);
         }
-        return (int)(ans/(n+1));
+        return res;
     }
 };
