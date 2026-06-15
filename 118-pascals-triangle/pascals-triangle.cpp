@@ -1,15 +1,15 @@
 class Solution {
 public:
-    vector<vector<int> > generate(int numRows) {
-        vector<vector<int>> r(numRows);
+    vector<vector<int>> generate(int num) {
+      vector<vector<int>>r;
+      for(int i=0;i<num;i++){
+        vector<int>row(i+1,1);
+        for(int j=1;j<i;j++){
+            row[j]=r[i-1][j-1]+r[i-1][j];
 
-        for (int i = 0; i < numRows; i++) {
-            r[i].assign(i + 1, 1);    
-
-            for (int j = 1; j < i; j++)
-                r[i][j] = r[i - 1][j - 1] + r[i - 1][j];
         }
-
-        return r;
+        r.push_back(row);
+      }  
+      return r;
     }
 };
